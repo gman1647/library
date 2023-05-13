@@ -20,5 +20,3 @@ function Player(name, marker) {
 
 const player1 = new Player('steve', 'X');
 const player2 = new Player('also steve', 'O');
-
-const high = 'hi';
