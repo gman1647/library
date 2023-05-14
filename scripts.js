@@ -19,3 +19,13 @@ let book1 = ['Bible', 'God', '1234', true];
 addBookToLibrary(book1);
 
 console.log(myLibrary);
+
+const newBookForm = document.getElementById('book-form');
+let newBookButton = document.getElementById('add-book');
+
+newBookButton.addEventListener('click', () => {
+  console.log(newBookForm.style.display);
+  newBookForm.style.display === 'none' || newBookForm.style.display === ''
+    ? (newBookForm.style.display = 'block')
+    : (newBookForm.style.display = 'none');
+});

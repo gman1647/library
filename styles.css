@@ -12,7 +12,7 @@ h1 {
   color: green;
 }
 
-.add-book {
+#book-form {
   border: 1px solid black;
   width: 350px;
   height: 380px;
@@ -22,9 +22,10 @@ h1 {
   color: var(--brown);
   border-right: 10px solid var(--complement);
   border-radius: 0px 10px;
+  display: none;
 }
 
-.add-book form {
+.book-form form {
   grid-column: span 2;
   margin: 20px 0;
   /*   display: grid;
