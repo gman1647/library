@@ -10,11 +10,17 @@
   <body>
     <heading>
       <h1>My Library</h1>
-      <button type="button">Add Boook</button>
+      <button type="button" id="add-book">Add Boook</button>
     </heading>
     <div class="card_container">
       <div class="card"></div>
     </div>
+    <form>
+      <label name="title">Title: <input type="text" class="title" /></label>
+      <label name="author">Author: <input type="text" class="author" /></label>
+      <label name="pages">Pages: <input type="number" class="pages" /></label>
+      <label name="read">Read?: <input type="checkbox" class="read" /></label>
+    </form>
 
     <script src="./scripts.js"></script>
   </body>

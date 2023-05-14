@@ -1,3 +1,5 @@
+let myLibrary = [];
+
 function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
@@ -8,15 +10,7 @@ function Book(title, author, pages, read) {
   };
 }
 
-/* console.log(theHobbit.info()); */
-
-function Player(name, marker) {
-  this.name = name;
-  this.marker = marker;
-  this.sayName = function () {
-    console.log(name);
-  };
+function addBookToLibrary(newItem) {
+  let newItem = document.getElementsByClassName('new-book');
+  myLibrary.push('newItem');
 }
-
-const player1 = new Player('steve', 'X');
-const player2 = new Player('also steve', 'O');
