@@ -3,24 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta for="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles.css" />
     <title>My Library</title>
   </head>
   <body>
     <heading>
       <h1>My Library</h1>
-      <button type="button" id="add-book">Add Boook</button>
+      <button type="button" id="add-book">New Book</button>
     </heading>
     <div class="card_container">
       <div class="card"></div>
     </div>
-    <form>
-      <label name="title">Title: <input type="text" class="title" /></label>
-      <label name="author">Author: <input type="text" class="author" /></label>
-      <label name="pages">Pages: <input type="number" class="pages" /></label>
-      <label name="read">Read?: <input type="checkbox" class="read" /></label>
-    </form>
+    <div class="add-book">
+      <h2 class="new-book-form-title">New Book</h2>
+      <form>
+        <div class="new-book-form-input">
+          <label for="title">Title: </label>
+          <input type="text" id="new-title" name="new-title" />
+        </div>
+        <div class="new-book-form-input">
+          <label for="author">Author: </label>
+          <input type="text" id="new-author" name="new-author" />
+        </div>
+        <div class="new-book-form-input">
+          <label for="pages">Pages: </label>
+          <input type="number" id="new-pages" name="new-pages" />
+        </div>
+        <div class="new-book-form-input">
+          <label for="read">Read?: </label>
+          <input type="checkbox" id="new-read" name="new-read" />
+        </div>
+      </form>
+      <button class="add-book-button" type="submit">Add Book</button>
+    </div>
 
     <script src="./scripts.js"></script>
   </body>

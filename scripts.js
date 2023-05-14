@@ -10,7 +10,12 @@ function Book(title, author, pages, read) {
   };
 }
 
-function addBookToLibrary(newItem) {
-  let newItem = document.getElementsByClassName('new-book');
-  myLibrary.push('newItem');
+function addBookToLibrary(book) {
+  myLibrary.push(book);
 }
+
+let book1 = ['Bible', 'God', '1234', true];
+
+addBookToLibrary(book1);
+
+console.log(myLibrary);
