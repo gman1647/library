@@ -8,10 +8,17 @@
     <title>My Library</title>
   </head>
   <body>
-    <heading>
-      <h1>My Library</h1>
-      <button type="button" id="add-book">New Book</button>
-    </heading>
+    <header>
+      <div class="page-title">
+        <div class="header-right">
+          <svg class="icon" aria-hidden="true" focusable="false">
+            <use href="#bookshelf"></use>
+          </svg>
+          <h1>My Library</h1>
+        </div>
+        <button id="add-book-header-button">Add Book</button>
+      </div>
+    </header>
     <div class="card_container">
       <div class="card"></div>
     </div>
@@ -37,7 +44,15 @@
       </form>
       <button class="add-book-button" type="submit">Add Book</button>
     </div>
-
     <script src="./scripts.js"></script>
   </body>
 </html>
+
+<svg xmlns="http://www.w3.org/2000/svg">
+  <symbol id="bookshelf" viewBox="0 0 24 24">
+    <path
+      fill="currentColor"
+      d="M9 3V18H12V3H9M12 5L16 18L19 17L15 4L12 5M5 5V18H8V5H5M3 19V21H21V19H3Z"
+    />
+  </symbol>
+</svg>
