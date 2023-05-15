@@ -21,19 +21,24 @@ addBookToLibrary(book1);
 console.log(myLibrary);
 
 const newBookForm = document.getElementById('book-form');
-
 const newBookButton = document.getElementById('add-book-header-button');
-
-/* newBookButton.addEventListener('click', () => {
-  console.log(newBookForm.style.display);
-  newBookForm.style.display === 'none' || newBookForm.style.display === ''
-    ? (newBookForm.style.display = 'block')
-    : (newBookForm.style.display = 'none');
-}); */
+let click = 0;
 
 newBookButton.addEventListener('click', () => {
+  changeStyle();
+  changeContent();
+});
+
+let changeStyle = () => {
   style = window.getComputedStyle(newBookForm);
   style.getPropertyValue('display') === 'none'
     ? (newBookForm.style.display = 'grid')
     : (newBookForm.style.display = 'none');
-});
+};
+
+let changeContent = () => {
+  click += 1;
+  click % 2 != 0
+    ? (newBookButton.textContent = 'Cancel')
+    : (newBookButton.textContent = 'Add Book');
+};
