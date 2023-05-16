@@ -130,3 +130,49 @@ heading {
   grid-area: 3/1/4/3;
   justify-self: center;
 }
+
+.card_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 220px);
+}
+/*   grid-template-columns: repeat(auto-fit, 220px);
+  grid-auto-rows: 290px;
+  grid-auto-flow: column; */
+
+.card {
+  height: 250px;
+  width: 200px;
+  background-color: var(--complement);
+  border-left: 15px solid var(--brown);
+  border-radius: 0 15px 15px 0;
+  margin: 20px 10px;
+  box-shadow: 5px 5px 0 var(--light);
+  position: relative;
+  overflow: auto;
+}
+
+.book-title {
+  font-size: 1.2rem;
+  margin: 30px 10px 20px;
+  background-color: var(--brown);
+  color: var(--light);
+  margin-right: 0;
+}
+
+.card p {
+  background-color: var(--complement);
+  color: var(--light);
+  font-size: 1rem;
+  font-style: italic;
+  margin: 10px 25px;
+}
+
+.card .icon {
+  color: var(--light);
+  height: 3rem;
+  width: 3rem;
+  /* margin: 10px 25px; */
+  position: absolute;
+  left: 120px;
+  top: 185px;
+}

@@ -22,11 +22,11 @@ console.log(myLibrary);
 
 const newBookForm = document.getElementById('book-form');
 const newBookButton = document.getElementById('add-book-header-button');
-let click = 0;
+let isFormOpen = false;
 
 newBookButton.addEventListener('click', () => {
   changeStyle();
-  changeContent();
+  toggleForm();
 });
 
 let changeStyle = () => {
@@ -36,9 +36,11 @@ let changeStyle = () => {
     : (newBookForm.style.display = 'none');
 };
 
-let changeContent = () => {
-  click += 1;
-  click % 2 != 0
-    ? (newBookButton.textContent = 'Cancel')
-    : (newBookButton.textContent = 'Add Book');
+let toggleForm = () => {
+  isFormOpen = !isFormOpen;
+  updateButton();
+};
+
+let updateButton = () => {
+  newBookButton.textContent = isFormOpen ? 'Cancel' : 'Add Book';
 };
