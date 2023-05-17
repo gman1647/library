@@ -7,6 +7,9 @@
   padding: 0;
 }
 
+html {
+  background-color: var(--light);
+}
 header {
   background: var(--complement);
   font-size: 2rem;
@@ -62,6 +65,11 @@ heading {
   color: var(--brown);
   border-right: 10px solid var(--complement);
   border-radius: 0px 10px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 250px auto;
+  transform: translateY(-50%);
 }
 
 .book-form form {
@@ -134,6 +142,7 @@ heading {
 .card_container {
   display: grid;
   grid-template-columns: repeat(auto-fit, 220px);
+  background-color: var(--light);
 }
 /*   grid-template-columns: repeat(auto-fit, 220px);
   grid-auto-rows: 290px;
@@ -146,7 +155,7 @@ heading {
   border-left: 15px solid var(--brown);
   border-radius: 0 15px 15px 0;
   margin: 20px 10px;
-  box-shadow: 5px 5px 0 var(--light);
+  box-shadow: 5px 5px 0 rgb(255, 255, 255);
   position: relative;
   overflow: auto;
 }
@@ -171,8 +180,18 @@ heading {
   color: var(--light);
   height: 3rem;
   width: 3rem;
-  /* margin: 10px 25px; */
+  margin: 10px 25px;
+  position: absolute;
+  left: 110px;
+  top: 175px;
+}
+
+/* #read-button001 {
   position: absolute;
   left: 120px;
-  top: 185px;
-}
+  top: 175px;
+  height: 3rem;
+  width: 3rem;
+  background: var(--complement);
+  border: none;
+} */
