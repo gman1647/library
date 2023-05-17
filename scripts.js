@@ -14,12 +14,6 @@ function addBookToLibrary(book) {
   myLibrary.push(book);
 }
 
-let book1 = ['Bible', 'God', '1234', true];
-
-addBookToLibrary(book1);
-
-console.log(myLibrary);
-
 const newBookForm = document.getElementById('book-form');
 const newBookButton = document.getElementById('add-book-header-button');
 let isFormOpen = false;
@@ -43,4 +37,31 @@ let toggleForm = () => {
 
 let updateButton = () => {
   newBookButton.textContent = isFormOpen ? 'Cancel' : 'Add Book';
+};
+
+/* let addBookButton = document.getElementById('add-book-button');
+
+addBookButton.addEventListener('submit', (x) => {
+  x.preventDefault();
+  getNewBookInfo();
+}); */
+
+let submitForm = document.getElementById('add-book-button');
+
+submitForm.addEventListener('click', () => {
+  getNewBookInfo();
+});
+
+let getNewBookInfo = () => {
+  let author = document.getElementById('new-author');
+  let title = document.getElementById('new-title');
+  let pages = document.getElementById('new-pages');
+  let read = document.getElementById('new-read');
+  let object = {};
+  object.author = author.value;
+  object.title = title.value;
+  object.pages = pages.value;
+  read.checked == true ? (object.read = true) : (object.read = false);
+  myLibrary.push(object);
+  console.log(myLibrary);
 };
