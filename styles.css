@@ -186,6 +186,15 @@ heading {
   top: 175px;
 }
 
+#fancy {
+  display: block;
+  position: absolute;
+  color: hotpink;
+  left: 1px;
+  top: 1px;
+  height: 3rem;
+  width: 3rem;
+}
 /* #read-button001 {
   position: absolute;
   left: 120px;
