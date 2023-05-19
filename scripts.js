@@ -55,21 +55,19 @@ let getNewBookInfo = () => {
   let title = document.getElementById('new-title').value;
   let pages = document.getElementById('new-pages').value;
   let read = checkRead();
-  /*   let read = document.getElementById('new-read');
-  read.checked == true ? (read = true) : (read = false); */
-  /*   let object = {};
-  object.author = author.value;
-  object.title = title.value;
-  object.pages = pages.value;
-  read.checked == true ? (object.read = true) : (object.read = false); */
+
   const book = new Book(title, author, pages, read);
   addBookToLibrary(book);
 };
 
 let checkRead = () => {
-  let read = document.getElementById('new-read');
+  let read = document.getElementsByClassName('checkbox');
   read.checked == true ? (read = true) : (read = false);
   return read;
+};
+
+let getReadState = (x, cb) => {
+  x == true ? (cb.checked = true) : (cb.checked = false);
 };
 
 let makeBookCard = (title, author, pages, read) => {
@@ -85,16 +83,37 @@ let makeBookCard = (title, author, pages, read) => {
 
   const pag = document.createElement('p');
   pag.classList.add('book-pages');
-  pag.textContent = pages;
+  pag.textContent = pages + ' pages';
+
+  const re = document.createElement('label');
+  re.classList.add('switch');
+
+  const br = document.createElement('p');
+  br.classList.add('book-read');
+  br.textContent = 'Read?';
+
+  const cb = document.createElement('input');
+  cb.setAttribute('type', 'checkbox');
+  cb.classList.add('checkbox');
+  getReadState(read, cb);
+
+  const sp = document.createElement('span');
+  sp.classList.add('slider');
+  sp.classList.add('round');
+
+  re.appendChild(br);
+  re.appendChild(cb);
+  re.appendChild(sp);
 
   mainDiv.appendChild(tit);
   mainDiv.appendChild(auth);
   mainDiv.appendChild(pag);
+  mainDiv.appendChild(re);
 
   mainDiv.classList.add('card');
   cardContainer.insertBefore(mainDiv, newBookForm);
 };
 
-makeBookCard('Les Miserable', 'Victor Hugo', 1234, true);
+makeBookCard('Les Miserable', 'Victor Hugo', 1234, false);
 
 makeBookCard('Black Forrest Rangers', 'G. Bearrymore', 548, false);
