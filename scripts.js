@@ -58,10 +58,12 @@ let getNewBookInfo = () => {
 
   const book = new Book(title, author, pages, read);
   addBookToLibrary(book);
+  makeBookCard(book.title, book.author, book.pages, book.read);
+  changeStyle();
 };
 
 let checkRead = () => {
-  let read = document.getElementsByClassName('checkbox');
+  let read = document.getElementById('new-read');
   read.checked == true ? (read = true) : (read = false);
   return read;
 };
@@ -113,7 +115,3 @@ let makeBookCard = (title, author, pages, read) => {
   mainDiv.classList.add('card');
   cardContainer.insertBefore(mainDiv, newBookForm);
 };
-
-makeBookCard('Les Miserable', 'Victor Hugo', 1234, false);
-
-makeBookCard('Black Forrest Rangers', 'G. Bearrymore', 548, false);
