@@ -17,27 +17,19 @@ const newBookButton = document.getElementById('add-book-header-button');
 let isFormOpen = false;
 
 newBookButton.addEventListener('click', () => {
-  changeStyle();
   toggleForm();
 });
 
-let changeStyle = () => {
-  style = window.getComputedStyle(newBookForm);
-  style.getPropertyValue('display') === 'none'
-    ? (newBookForm.style.display = 'grid')
-    : (newBookForm.style.display = 'none');
-};
-
 let toggleForm = () => {
   style = window.getComputedStyle(newBookForm);
-  style.getPropertyValue('display') === 'none'
-    ? (newBookButton.textContent = 'Add Book')
-    : (newBookButton.textContent = 'Cancel');
+  if (style.getPropertyValue('display') === 'none') {
+    newBookForm.style.display = 'grid';
+    newBookButton.textContent = 'Cancel';
+  } else {
+    newBookForm.style.display = 'none';
+    newBookButton.textContent = 'Add Book';
+  }
 };
-
-/* let updateButton = () => {
-  newBookButton.textContent = isFormOpen ? 'Cancel' : 'Add Book';
-}; */
 
 let submitForm = document.getElementById('add-book-button');
 
@@ -55,7 +47,7 @@ let getNewBookInfo = () => {
   const book = new Book(title, author, pages, read);
   addBookToLibrary(book);
   makeBookCard(book.title, book.author, book.pages, book.read);
-  changeStyle();
+  //  changeStyle();
 };
 
 let checkRead = () => {
