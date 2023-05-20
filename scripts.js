@@ -29,25 +29,21 @@ let changeStyle = () => {
 };
 
 let toggleForm = () => {
-  isFormOpen = !isFormOpen;
-  updateButton();
+  style = window.getComputedStyle(newBookForm);
+  style.getPropertyValue('display') === 'none'
+    ? (newBookButton.textContent = 'Add Book')
+    : (newBookButton.textContent = 'Cancel');
 };
 
-let updateButton = () => {
+/* let updateButton = () => {
   newBookButton.textContent = isFormOpen ? 'Cancel' : 'Add Book';
-};
-
-/* let addBookButton = document.getElementById('add-book-button');
-
-addBookButton.addEventListener('submit', (x) => {
-  x.preventDefault();
-  getNewBookInfo();
-}); */
+}; */
 
 let submitForm = document.getElementById('add-book-button');
 
 submitForm.addEventListener('click', () => {
   getNewBookInfo();
+  toggleForm();
 });
 
 let getNewBookInfo = () => {
