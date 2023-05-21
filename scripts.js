@@ -1,15 +1,22 @@
 let myLibrary = [];
 const cardContainer = document.getElementById('card_container');
+let bookNumber = 0;
 
-function Book(title, author, pages, read) {
+function Book(title, author, pages, read, number) {
   this.title = title;
   this.author = author;
   this.pages = pages;
   this.read = read;
+  this.number = number;
 }
 
 function addBookToLibrary(book) {
   myLibrary.push(book);
+}
+
+function upDateBookNumber() {
+  bookNumber += 1;
+  //  return bookNumber;
 }
 
 const newBookForm = document.getElementById('book-form');
@@ -43,6 +50,7 @@ submitForm.addEventListener('click', () => {
   } else {
     getNewBookInfo();
     toggleForm();
+    upDateBookNumber();
   }
 });
 
@@ -51,11 +59,11 @@ let getNewBookInfo = () => {
   let title = document.getElementById('new-title').value;
   let pages = document.getElementById('new-pages').value;
   let read = checkRead();
+  number = bookNumber;
 
-  const book = new Book(title, author, pages, read);
+  const book = new Book(title, author, pages, read, number);
   addBookToLibrary(book);
   makeBookCard(book.title, book.author, book.pages, book.read);
-  //  changeStyle();
 };
 
 let checkRead = () => {
