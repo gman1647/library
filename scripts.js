@@ -34,8 +34,16 @@ let toggleForm = () => {
 let submitForm = document.getElementById('add-book-button');
 
 submitForm.addEventListener('click', () => {
-  getNewBookInfo();
-  toggleForm();
+  let author = document.getElementById('new-author').value;
+  let title = document.getElementById('new-title').value;
+  let pages = document.getElementById('new-pages').value;
+  if (author == '' || title == '' || pages == '') {
+    alert('please complete all fields');
+    console.log(author.value);
+  } else {
+    getNewBookInfo();
+    toggleForm();
+  }
 });
 
 let getNewBookInfo = () => {
