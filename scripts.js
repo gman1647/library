@@ -12,6 +12,7 @@ function Book(title, author, pages, read, number) {
 
 function addBookToLibrary(book) {
   myLibrary.push(book);
+  upDateBookNumber();
 }
 
 function upDateBookNumber() {
@@ -46,11 +47,9 @@ submitForm.addEventListener('click', () => {
   let pages = document.getElementById('new-pages').value;
   if (author == '' || title == '' || pages == '') {
     alert('please complete all fields');
-    console.log(author.value);
   } else {
-    getNewBookInfo();
+    createObject();
     toggleForm();
-    upDateBookNumber();
   }
 });
 
@@ -60,10 +59,16 @@ let getNewBookInfo = () => {
   let pages = document.getElementById('new-pages').value;
   let read = checkRead();
   number = bookNumber;
+  return [author, title, pages, read, number];
+};
 
-  const book = new Book(title, author, pages, read, number);
-  addBookToLibrary(book);
-  makeBookCard(book.title, book.author, book.pages, book.read);
+let createObject = () => {
+  let bookName = 'book' + bookNumber;
+  array = getNewBookInfo();
+  console.log(array);
+  bookName = new Book(array[1], array[0], array[2], array[3], array[4]);
+  addBookToLibrary(bookName);
+  makeBookCard(array[1], array[0], array[2], array[3]);
 };
 
 let checkRead = () => {
@@ -119,3 +124,12 @@ let makeBookCard = (title, author, pages, read) => {
   mainDiv.classList.add('card');
   cardContainer.insertBefore(mainDiv, newBookForm);
 };
+
+/* const book = new Book('Hunchback', 'Hugo', 789, true, bookNumber);
+addBookToLibrary(book);
+makeBookCard(book.title, book.author, book.pages, book.read, book.number);
+
+const book2 = new Book('Gettysburg', 'Shira', 1549, false, bookNumber);
+addBookToLibrary(book2);
+makeBookCard(book2.title, book2.author, book2.pages, book2.read, book2.number);
+ */

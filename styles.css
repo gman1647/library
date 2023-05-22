@@ -1,7 +1,10 @@
 * {
-  --brown: #5d352b;
+  /*   --brown: #5d352b;
   --complement: #2b535d;
-  --light: #d0c6c4;
+  --light: #d0c6c4; */
+  --brown: black;
+  --complement: royalblue;
+  --light: silver;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -270,7 +273,7 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-/* footer {
+footer {
   position: fixed;
   left: 0;
   bottom: 0;
@@ -278,5 +281,5 @@ input:checked + .slider:before {
   background-color: var(--complement);
   color: var(--light);
   text-align: center;
-  font-family: "Aquire";
-} */
+  font-family: 'Aquire';
+}
