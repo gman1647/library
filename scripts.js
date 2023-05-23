@@ -75,8 +75,15 @@ let createFromArray = () => {
     author = array[i].author;
     pages = array[i].pages;
     read = array[i].read;
-    //    number = array[i].number;
     makeBookCard(title, author, pages, read);
+  }
+};
+
+let deleteCards = () => {
+  cards = document.getElementsByClassName('card');
+  let i = 0;
+  while (i < cards.length) {
+    cardContainer.removeChild(cards[0]);
   }
 };
 
@@ -134,10 +141,15 @@ let makeBookCard = (title, author, pages, read) => {
   cardContainer.insertBefore(mainDiv, newBookForm);
 };
 
-const book = new Book('Hunchback', 'Hugo', 789, true, bookNumber);
+const book = new Book('Hunchback', 'Victor Hugo', 789, true, bookNumber);
 addBookToLibrary(book);
 
-const book2 = new Book('Gettysburg', 'Shira', 1549, false, bookNumber);
+const book2 = new Book('Gettysburg', 'Walter Shira', 1549, true, bookNumber);
 addBookToLibrary(book2);
 
+const book3 = new Book('iRacing', 'David Kramer', 2021, true, bookNumber);
+addBookToLibrary(book3);
+
 createFromArray();
+
+deleteCards();
