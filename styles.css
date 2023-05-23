@@ -1,10 +1,10 @@
 * {
-  /*   --brown: #5d352b;
+  --brown: #5d352b;
   --complement: #2b535d;
-  --light: #d0c6c4; */
-  --brown: black;
-  --complement: royalblue;
-  --light: silver;
+  --light: #d0c6c4;
+  /*   --brown: #add8e6;
+  --complement: #0047ab;
+  --light: #ffffff; */
   box-sizing: border-box;
   margin: 0;
   padding: 0;

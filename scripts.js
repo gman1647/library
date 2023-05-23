@@ -17,7 +17,6 @@ function addBookToLibrary(book) {
 
 function upDateBookNumber() {
   bookNumber += 1;
-  //  return bookNumber;
 }
 
 const newBookForm = document.getElementById('book-form');
@@ -63,12 +62,22 @@ let getNewBookInfo = () => {
 };
 
 let createObject = () => {
-  let bookName = 'book' + bookNumber;
   array = getNewBookInfo();
-  console.log(array);
   bookName = new Book(array[1], array[0], array[2], array[3], array[4]);
   addBookToLibrary(bookName);
   makeBookCard(array[1], array[0], array[2], array[3]);
+};
+
+let createFromArray = () => {
+  array = myLibrary;
+  for (i = 0; i < array.length; i++) {
+    title = array[i].title;
+    author = array[i].author;
+    pages = array[i].pages;
+    read = array[i].read;
+    //    number = array[i].number;
+    makeBookCard(title, author, pages, read);
+  }
 };
 
 let checkRead = () => {
@@ -125,11 +134,10 @@ let makeBookCard = (title, author, pages, read) => {
   cardContainer.insertBefore(mainDiv, newBookForm);
 };
 
-/* const book = new Book('Hunchback', 'Hugo', 789, true, bookNumber);
+const book = new Book('Hunchback', 'Hugo', 789, true, bookNumber);
 addBookToLibrary(book);
-makeBookCard(book.title, book.author, book.pages, book.read, book.number);
 
 const book2 = new Book('Gettysburg', 'Shira', 1549, false, bookNumber);
 addBookToLibrary(book2);
-makeBookCard(book2.title, book2.author, book2.pages, book2.read, book2.number);
- */
+
+createFromArray();
