@@ -1,6 +1,10 @@
 let myLibrary = [];
 const cardContainer = document.getElementById('card_container');
+const newBookForm = document.getElementById('book-form');
+const newBookButton = document.getElementById('add-book-header-button');
+let isFormOpen = false;
 let bookNumber = 0;
+let submitForm = document.getElementById('add-book-button');
 
 function Book(title, author, pages, read, number) {
   this.title = title;
@@ -19,10 +23,6 @@ function upDateBookNumber() {
   bookNumber += 1;
 }
 
-const newBookForm = document.getElementById('book-form');
-const newBookButton = document.getElementById('add-book-header-button');
-let isFormOpen = false;
-
 newBookButton.addEventListener('click', () => {
   toggleForm();
 });
@@ -38,17 +38,18 @@ let toggleForm = () => {
   }
 };
 
-let submitForm = document.getElementById('add-book-button');
-
 submitForm.addEventListener('click', () => {
-  let author = document.getElementById('new-author').value;
-  let title = document.getElementById('new-title').value;
-  let pages = document.getElementById('new-pages').value;
+  array = getNewBookInfo();
+  let author = array[0];
+  let title = array[1];
+  let pages = array[2];
   if (author == '' || title == '' || pages == '') {
-    alert('please complete all fields');
+    alert('Please complete all fields.');
   } else {
     createObject();
     toggleForm();
+    deleteCards();
+    createFromArray();
   }
 });
 
@@ -65,7 +66,6 @@ let createObject = () => {
   array = getNewBookInfo();
   bookName = new Book(array[1], array[0], array[2], array[3], array[4]);
   addBookToLibrary(bookName);
-  makeBookCard(array[1], array[0], array[2], array[3]);
 };
 
 let createFromArray = () => {
@@ -151,5 +151,3 @@ const book3 = new Book('iRacing', 'David Kramer', 2021, true, bookNumber);
 addBookToLibrary(book3);
 
 createFromArray();
-
-deleteCards();
