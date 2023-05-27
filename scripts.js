@@ -152,29 +152,34 @@ addBookToLibrary(book);
 const book2 = new Book('Gettysburg', 'Walter Shira', 1549, true, bookNumber);
 addBookToLibrary(book2);
 
+const book4 = new Book('Gettysburg', 'Walter Shira', 1549, true, bookNumber);
+addBookToLibrary(book4);
+const book5 = new Book('Gettysburg', 'Walter Shira', 1549, true, bookNumber);
+addBookToLibrary(book5);
+const book6 = new Book('Gettysburg', 'Walter Shira', 1549, true, bookNumber);
+addBookToLibrary(book6);
+const book7 = new Book('Gettysburg', 'Walter Shira', 1549, true, bookNumber);
+addBookToLibrary(book7);
+const book8 = new Book('Gettysburg', 'Walter Shira', 1549, true, bookNumber);
+addBookToLibrary(book8);
+const book9 = new Book('Gettysburg', 'Walter Shira', 1549, true, bookNumber);
+addBookToLibrary(book9);
+const book10 = new Book('Gettysburg', 'Walter Shira', 1549, true, bookNumber);
+addBookToLibrary(book10);
+const book11 = new Book('Gettysburg', 'Walter Shira', 1549, true, bookNumber);
+addBookToLibrary(book11);
 const book3 = new Book('iRacing', 'David Kramer', 2021, true, bookNumber);
 addBookToLibrary(book3);
 
 createFromArray();
 
-/* let toggleRead = () => {
-  for (i = 0; i < myLibrary.length; i++) {
-    toggleName = 'checkbox' + i;
-    //   console.log(toggleName.checked);
-    toggle = document.getElementById(toggleName);
-    console.log(toggle);
-    toggle.addEventListener('click', () => {
-      changeReadState(toggle);
-    });
-  }
-}; */
-
 let checkbox = document.querySelectorAll('.checkbox');
 
 let changeReadState = (x) => {
-  let test = x.id;
-  console.log(test);
-  x.checked == true ? console.log('checked') : console.log('unchecked');
+  let index = x.id.slice(8);
+  x.checked == true
+    ? (myLibrary[index].read = true)
+    : (myLibrary[index].read = false);
 };
 
 checkbox.forEach((item) => {
@@ -182,5 +187,3 @@ checkbox.forEach((item) => {
     changeReadState(item);
   });
 });
-
-//toggleRead();
