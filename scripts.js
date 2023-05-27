@@ -57,7 +57,8 @@ let getNewBookInfo = () => {
   let author = document.getElementById('new-author').value;
   let title = document.getElementById('new-title').value;
   let pages = document.getElementById('new-pages').value;
-  let read = checkRead();
+  let read = document.getElementById('new-read');
+  read = checkRead(read);
   number = bookNumber;
   return [author, title, pages, read, number];
 };
@@ -87,15 +88,16 @@ let deleteCards = () => {
   }
 };
 
-let checkRead = () => {
-  let read = document.getElementById('new-read');
-  read.checked == true ? (read = true) : (read = false);
-  return read;
+let checkRead = (bookRead) => {
+  bookRead.checked == true ? (bookRead = true) : (bookRead = false);
+  return bookRead;
 };
 
 let getReadState = (x, cb) => {
   x == true ? (cb.checked = true) : (cb.checked = false);
 };
+
+let cbNumber = 0;
 
 let makeBookCard = (title, author, pages, read) => {
   const mainDiv = document.createElement('div');
@@ -122,6 +124,7 @@ let makeBookCard = (title, author, pages, read) => {
   const cb = document.createElement('input');
   cb.setAttribute('type', 'checkbox');
   cb.classList.add('checkbox');
+  cb.setAttribute('id', 'checkbox' + cbNumber);
   getReadState(read, cb);
 
   const sp = document.createElement('span');
@@ -139,6 +142,8 @@ let makeBookCard = (title, author, pages, read) => {
 
   mainDiv.classList.add('card');
   cardContainer.insertBefore(mainDiv, newBookForm);
+
+  cbNumber += 1;
 };
 
 const book = new Book('Hunchback', 'Victor Hugo', 789, true, bookNumber);
@@ -151,3 +156,31 @@ const book3 = new Book('iRacing', 'David Kramer', 2021, true, bookNumber);
 addBookToLibrary(book3);
 
 createFromArray();
+
+/* let toggleRead = () => {
+  for (i = 0; i < myLibrary.length; i++) {
+    toggleName = 'checkbox' + i;
+    //   console.log(toggleName.checked);
+    toggle = document.getElementById(toggleName);
+    console.log(toggle);
+    toggle.addEventListener('click', () => {
+      changeReadState(toggle);
+    });
+  }
+}; */
+
+let checkbox = document.querySelectorAll('.checkbox');
+
+let changeReadState = (x) => {
+  let test = x.id;
+  console.log(test);
+  x.checked == true ? console.log('checked') : console.log('unchecked');
+};
+
+checkbox.forEach((item) => {
+  item.addEventListener('click', () => {
+    changeReadState(item);
+  });
+});
+
+//toggleRead();
