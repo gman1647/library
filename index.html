@@ -20,16 +20,22 @@
       </div>
     </header>
     <div class="card_container" id="card_container">
-      <!--         <div class="card">
-          <h3 class="book-title">The Hobbit and His Friends</h3>
-          <p class="book-author">JRR Tolkein and some others</p>
-          <p class="book-pages">2344 pages</p>
-          <label class="switch">
-            <p class="book-read">Read?</p>
-            <input checked type="checkbox" class="checkbox">
-            <span class="slider round"></span>
-          </label>
-        </div> -->
+      <div class="card">
+        <h3 class="book-title">The Hobbit and His Friends</h3>
+        <p class="book-author">JRR Tolkein and some others</p>
+        <p class="book-pages">2344 pages</p>
+        <button id="trash-it" class="trash-it" type="button">
+          <svg class="icon" aria-hidden="true" focusable="false">
+            <use href="#trash2"></use>
+          </svg>
+        </button>
+
+        <label class="switch">
+          <p class="book-read">Read?</p>
+          <input checked type="checkbox" class="checkbox" />
+          <span class="slider round"></span>
+        </label>
+      </div>
 
       <div class="book-form" id="book-form">
         <h2 class="new-book-form-title">New Book</h2>
@@ -96,4 +102,16 @@
       d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z"
     />
   </symbol> -->
+  <symbol id="trash1" viewBox="0 0 24 24">
+    <path
+      fill="currentColor"
+      d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z"
+    />
+  </symbol>
+  <symbol id="trash2" viewBox="0 0 24 24">
+    <path
+      fill="currentColor"
+      d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z"
+    />
+  </symbol>
 </svg>

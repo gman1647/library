@@ -42,6 +42,7 @@ button {
   color: var(--complement);
   box-shadow: 5px 5px 0 var(--brown);
   margin-right: 50px;
+  min-width: 91px;
 }
 
 .page-title .icon,
@@ -182,14 +183,28 @@ heading {
 .card .icon,
 .card svg {
   color: var(--light);
-  height: 3rem;
-  width: 3rem;
-  margin: 10px 25px;
-  position: absolute;
-  left: 110px;
-  top: 175px;
+  height: 2rem;
+  width: 2rem;
+  background-color: var(--brown);
 }
 
+.trash-it {
+  color: var(--light);
+  height: 2.5rem;
+  width: 2.5rem;
+  margin: 10px 25px;
+  position: absolute;
+  left: -20px;
+  top: 195px;
+  background-color: var(--brown);
+  border-radius: 5px;
+  border: 1px solid var(--light);
+}
+
+.delete-button {
+  color: var(--light);
+  font-size: 32px;
+}
 /* #fancy {
   display: block;
   position: absolute;
