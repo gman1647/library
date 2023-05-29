@@ -3,24 +3,18 @@ const cardContainer = document.getElementById('card_container');
 const newBookForm = document.getElementById('book-form');
 const newBookButton = document.getElementById('add-book-header-button');
 let isFormOpen = false;
-let bookNumber = 0;
+
 let submitForm = document.getElementById('add-book-button');
 
-function Book(title, author, pages, read, number) {
+function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
   this.read = read;
-  this.number = number;
 }
 
 function addBookToLibrary(book) {
   myLibrary.push(book);
-  upDateBookNumber();
-}
-
-function upDateBookNumber() {
-  bookNumber += 1;
 }
 
 newBookButton.addEventListener('click', () => {
@@ -50,6 +44,9 @@ submitForm.addEventListener('click', () => {
     toggleForm();
     deleteCards();
     createFromArray();
+    deleteItem();
+    checkboxListener();
+    cbNumber = 0;
   }
 });
 
@@ -59,13 +56,12 @@ let getNewBookInfo = () => {
   let pages = document.getElementById('new-pages').value;
   let read = document.getElementById('new-read');
   read = checkRead(read);
-  number = bookNumber;
-  return [author, title, pages, read, number];
+  return [author, title, pages, read];
 };
 
 let createObject = () => {
   array = getNewBookInfo();
-  bookName = new Book(array[1], array[0], array[2], array[3], array[4]);
+  bookName = new Book(array[1], array[0], array[2], array[3]);
   addBookToLibrary(bookName);
 };
 
@@ -172,34 +168,14 @@ let makeBookCard = (title, author, pages, read) => {
   cbNumber += 1;
 };
 
-const book = new Book('Hunchback', 'Victor Hugo', 789, true, bookNumber);
+const book = new Book('Hunchback', 'Victor Hugo', 789, true);
 addBookToLibrary(book);
 
-const book2 = new Book('Gettysburg', 'Walter Shira', 1549, true, bookNumber);
+const book2 = new Book('Gettysburg', 'Walter Shira', 1549, true);
 addBookToLibrary(book2);
 
-const book4 = new Book('Gettysburg', 'Walter Shira', 1549, true, bookNumber);
-addBookToLibrary(book4);
-const book5 = new Book('Gettysburg', 'Walter Shira', 1549, true, bookNumber);
-addBookToLibrary(book5);
-const book6 = new Book('Gettysburg', 'Walter Shira', 1549, true, bookNumber);
-addBookToLibrary(book6);
-const book7 = new Book('Gettysburg', 'Walter Shira', 1549, true, bookNumber);
-addBookToLibrary(book7);
-const book8 = new Book('Gettysburg', 'Walter Shira', 1549, true, bookNumber);
-addBookToLibrary(book8);
-const book9 = new Book('Gettysburg', 'Walter Shira', 1549, true, bookNumber);
-addBookToLibrary(book9);
-const book10 = new Book('Gettysburg', 'Walter Shira', 1549, true, bookNumber);
-addBookToLibrary(book10);
-const book11 = new Book('Gettysburg', 'Walter Shira', 1549, true, bookNumber);
-addBookToLibrary(book11);
-const book3 = new Book('iRacing', 'David Kramer', 2021, true, bookNumber);
+const book3 = new Book('iRacing', 'David Kramer', 2021, true);
 addBookToLibrary(book3);
-
-createFromArray();
-
-let checkbox = document.querySelectorAll('.checkbox');
 
 let changeReadState = (x) => {
   let index = x.id.slice(8);
@@ -208,31 +184,35 @@ let changeReadState = (x) => {
     : (myLibrary[index].read = false);
 };
 
-checkbox.forEach((item) => {
-  item.addEventListener('click', () => {
-    changeReadState(item);
-  });
-});
-
-let trashit = document.querySelectorAll('.trash-it');
-
-trashit.forEach((item) => {
-  item.addEventListener('click', () => {
-    index = item.id.slice(12);
-    console.log('totes clicked ' + index);
-    console.log(myLibrary);
-    bookNumber = 0;
-    cbNumber = 0;
-    let filtered_library = myLibrary.filter(function (val) {
-      if (val.number != index) {
-        return val;
-      }
+function checkboxListener() {
+  let checkbox = document.querySelectorAll('.checkbox');
+  checkbox.forEach((item) => {
+    item.addEventListener('click', () => {
+      changeReadState(item);
     });
-    //  myLibrary = myLibrary.splice(index, 1);
-    console.log(filtered_library);
-    myLibrary = filtered_library;
-    deleteCards();
-    createFromArray();
-    console.log(bookNumber);
   });
-});
+}
+
+function deleteItem() {
+  let trashit = document.querySelectorAll('.trash-it');
+  trashit.forEach((item) => {
+    item.addEventListener('click', () => {
+      index = item.id.slice(12);
+      cbNumber = 0;
+      let filtered_library = myLibrary.filter(function (val) {
+        if (myLibrary.indexOf(val) != index) {
+          return val;
+        }
+      });
+      myLibrary = filtered_library;
+      deleteCards();
+      createFromArray();
+      deleteItem();
+      checkboxListener();
+    });
+  });
+}
+
+createFromArray();
+deleteItem();
+checkboxListener();
