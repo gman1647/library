@@ -204,6 +204,10 @@ heading {
 .delete-button {
   color: var(--light);
   font-size: 32px;
+  height: 32px;
+  width: 32px;
+  margin: auto;
+  border: 1px solid hotpink;
 }
 /* #fancy {
   display: block;

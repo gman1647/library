@@ -3,7 +3,6 @@ const cardContainer = document.getElementById('card_container');
 const newBookForm = document.getElementById('book-form');
 const newBookButton = document.getElementById('add-book-header-button');
 let isFormOpen = false;
-
 let submitForm = document.getElementById('add-book-button');
 
 function Book(title, author, pages, read) {
@@ -118,13 +117,14 @@ let makeBookCard = (title, author, pages, read) => {
   br.textContent = 'Read?';
 
   const del = document.createElement('button');
-  /*   del.setAttribute('id', 'trash-it' + cbNumber); */
+
   del.classList.add('trash-it');
+
   del.setAttribute('id', 'deleteButton' + cbNumber);
   del.setAttribute('type', 'button');
   const sv = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   sv.classList.add('icon');
-  sv.setAttribute('viewbox', '0 0 24 24');
+  sv.setAttribute('viewbox', '0 0 32 32');
   const trashImage = document.createElementNS(
     'http://www.w3.org/2000/svg',
     'path'
@@ -149,9 +149,6 @@ let makeBookCard = (title, author, pages, read) => {
   sp.classList.add('slider');
   sp.classList.add('round');
 
-  /*   del.appendChild(sv);
-  sv.appendChild(us); */
-
   re.appendChild(br);
   re.appendChild(cb);
   re.appendChild(sp);
@@ -167,15 +164,6 @@ let makeBookCard = (title, author, pages, read) => {
 
   cbNumber += 1;
 };
-
-const book = new Book('Hunchback', 'Victor Hugo', 789, true);
-addBookToLibrary(book);
-
-const book2 = new Book('Gettysburg', 'Walter Shira', 1549, true);
-addBookToLibrary(book2);
-
-const book3 = new Book('iRacing', 'David Kramer', 2021, true);
-addBookToLibrary(book3);
 
 let changeReadState = (x) => {
   let index = x.id.slice(8);
@@ -212,6 +200,15 @@ function deleteItem() {
     });
   });
 }
+
+const book = new Book('Hunchback', 'Victor Hugo', 789, true);
+addBookToLibrary(book);
+
+const book2 = new Book('Gettysburg', 'Walter Shira', 1549, true);
+addBookToLibrary(book2);
+
+const book3 = new Book('iRacing', 'David Kramer', 2021, true);
+addBookToLibrary(book3);
 
 createFromArray();
 deleteItem();
