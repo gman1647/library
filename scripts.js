@@ -99,11 +99,11 @@ let makeBookCard = (title, author, pages, read) => {
 
   const tit = document.createElement('h3');
   tit.classList.add('book-title');
-  tit.textContent = title;
+  tit.textContent = 'Title: ' + title;
 
   const auth = document.createElement('p');
   auth.classList.add('book-author');
-  auth.textContent = author;
+  auth.textContent = 'Author: ' + author;
 
   const pag = document.createElement('p');
   pag.classList.add('book-pages');

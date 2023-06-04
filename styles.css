@@ -7,15 +7,18 @@
   font-family: Titillium;
   src: url(../fonts/Titillium/TitilliumWeb-Regular.ttf);
 }
+@font-face {
+  font-family: Typewriter;
+  src: url(../fonts/X-Typewriter/XTypewriter-z8oP4.ttf);
+}
 
 * {
-  --brown: #5d352b;
-  --complement: #2b535d;
+  --brown: #6b5c99;
+  --complement: #fbefe7;
   --light: #f7fdff;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Titillium, sans-serif;
 }
 
 html {
@@ -24,13 +27,14 @@ html {
 header {
   background: var(--complement);
   font-size: 2rem;
+  font-family: Titillium;
 }
 .page-title {
   display: flex;
   justify-content: space-between;
   flex-wrap: nowrap;
   align-items: center;
-  color: var(--light);
+  color: var(--brown);
 }
 .header-right {
   display: grid;
@@ -46,9 +50,9 @@ button {
   margin: 15px 0;
 }
 #add-book-header-button {
-  background-color: var(--light);
+  background-color: var(--brown);
   color: var(--complement);
-  box-shadow: 5px 5px 0 var(--brown);
+  box-shadow: 5px 5px 0 var(--light);
   margin-right: 50px;
   min-width: 91px;
 }
@@ -56,26 +60,26 @@ button {
 .page-title .icon,
 .page-title h1 {
   margin: 10px;
-  text-shadow: 3px 3px 3px var(--brown);
+  /*   text-shadow: 3px 3px 3px var(--brown); */
 }
 .page-title .icon {
   height: 3rem;
   width: 3rem;
 }
-
+/* 
 heading {
   position: relative;
-}
+} */
 
 #book-form {
-  border: 1px solid black;
-  width: 450px;
+  border: 3px solid black;
+  width: 525px;
   height: 350px;
   display: none;
   grid-template: 60px 250px 25px/ 1fr;
   background-color: var(--light);
   color: var(--brown);
-  border-right: 10px solid var(--complement);
+  font-family: Typewriter;
   border-radius: 0px 10px;
   position: absolute;
   left: 0;
@@ -91,13 +95,9 @@ heading {
 
 .new-book-form-input {
   display: grid;
-  grid-template: 1fr / 60px 1fr;
+  grid-template: 1fr / 70px 1fr;
   gap: 10px;
   margin-right: 20px;
-}
-
-.new-book-form-input input {
-  font-family: Raleway, sans-serif;
 }
 
 .new-book-form-title {
@@ -114,6 +114,10 @@ heading {
 .new-book-form-input {
   margin: 15px 20px;
 }
+.new-book-form-input input {
+  font-family: Typewriter;
+  font-size: 1.2rem;
+}
 
 #new-read {
   justify-self: left;
@@ -125,8 +129,8 @@ heading {
 
 #new-read:checked {
   appearance: none;
-  background: var(--complement);
-  color: var(--light);
+  background: var(--brown);
+  color: var(--complement);
   content: '✓';
 }
 #new-read:checked::after {
@@ -137,22 +141,14 @@ heading {
 .add-book-button {
   border-radius: 0px 15px;
   background-color: var(--brown);
-  color: var(--light);
-  box-shadow: 5px 5px 0 var(--complement);
+  color: var(--complement);
+  /* box-shadow: 5px 5px 0 var(--complement); */
   height: 35px;
   width: 170px;
   font-size: 1.2rem;
   grid-area: 3/1/4/3;
   justify-self: center;
   margin: 15px 0;
-}
-
-.add-book-button {
-  background-color: var(--brown);
-  color: var(--light);
-  box-shadow: 5px 5px 0 var(--complement);
-  grid-area: 3/1/4/3;
-  justify-self: center;
 }
 
 .card_container {
@@ -164,25 +160,28 @@ heading {
 .card {
   height: 250px;
   width: 400px;
-  background-color: var(--complement);
+  border: 2px solid black;
   border-radius: 15px;
   margin: 20px 10px;
   box-shadow: 5px 5px 0 rgb(255, 255, 255);
   position: relative;
   overflow: auto;
+  background-color: #fbefe7;
+  font-family: Typewriter, sans-serif;
 }
 
 .book-title {
-  font-size: 1.2rem;
-  color: var(--light);
+  font-size: 1.5rem;
+  /*  color: #a498bc; */
+  color: #a99fc6;
+  color: #6b5c99;
+  background-color: #fbefe7;
   margin-right: 0;
+  margin: 10px 0px 0 20px;
 }
 
 .card p {
-  background-color: var(--complement);
-  color: var(--light);
-  font-style: italic;
-  margin: 10px 25px;
+  color: #6b5c99;
 }
 
 .card .icon,
@@ -190,13 +189,19 @@ heading {
   color: var(--light);
   height: 2rem;
   width: 2rem;
-  background-color: var(--brown);
+  background-color: #6b5c99;
 }
 
+.book-author,
+.book-pages {
+  margin: 15px 35px;
+  font-size: 1.2rem;
+}
 .card-bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 55px;
 }
 
 .trash-it {
@@ -204,11 +209,9 @@ heading {
   height: 2.5rem;
   width: 2.5rem;
   margin-left: 20px;
-  /* margin: 10px 25px; */
-  /*   position: absolute; */
   left: 0px;
   top: 185px;
-  background-color: var(--brown);
+  background-color: #6b5c99;
   border-radius: 5px;
   border: 1px solid var(--light);
 }
@@ -228,96 +231,15 @@ heading {
   margin: auto;
   border: 1px solid hotpink;
 }
-/* #fancy {
-  display: block;
-  position: absolute;
-  color: hotpink;
-  left: 1px;
-  top: 1px;
-  height: 3rem;
-  width: 3rem;
-} */
-/* #read-button001 {
-  position: absolute;
-  left: 120px;
-  top: 175px;
-  height: 3rem;
-  width: 3rem;
-  background: var(--complement);
-  border: none;
-} */
 
-/*  a whole bunch toggle styling
-.switch {
-  position: absolute;
-  display: inline-block;
-  width: 50px;
-  height: 24px;
-  top: 215px;
-  left: 325px;
-}
-
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: lime;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-}
-
-.book-read {
-   position: relative;
-  right: 35px;
-  bottom: -5px;
-}
-
-.slider:before {
-  position: absolute;
-  content: '';
-  height: 20px;
-  width: 20px;
-  left: 2px;
-  bottom: 2px;
-  background-color: yellow;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-}
-
-input:checked + .slider {
-  background-color: hotpink;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-} */
 .read-slider {
   margin-right: 20px;
 }
 
 .book-read {
   position: absolute;
-  left: -85px;
-  bottom: -10px;
+  left: -70px;
+  bottom: 5px;
   font-size: 1.25rem;
 }
 
@@ -362,11 +284,11 @@ input:checked + .slider:before {
 }
 
 input:checked + .slider {
-  background-color: #2196f3;
+  background-color: #6b5c99;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
+  box-shadow: 0 0 1px #6b5c99;
 }
 
 input:checked + .slider:before {
@@ -390,7 +312,7 @@ footer {
   bottom: 0;
   width: 100%;
   background-color: var(--complement);
-  color: var(--light);
+  color: var(--brown);
   text-align: center;
-  font-family: 'Aquire';
+  font-family: Typewriter;
 }
