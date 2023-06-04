@@ -1,9 +1,4 @@
 @font-face {
-  font-family: Raleway;
-  src: url(../fonts/Raleway/Raleway-Black.ttf);
-}
-
-@font-face {
   font-family: Titillium;
   src: url(../fonts/Titillium/TitilliumWeb-Regular.ttf);
 }
@@ -24,7 +19,7 @@
 header {
   background: var(--complement);
   font-size: 2rem;
-  font-family: Titillium;
+  font-family: Titillium, sans-serif;
 }
 .page-title {
   display: flex;
@@ -76,7 +71,7 @@ heading {
   grid-template: 60px 250px 25px/ 1fr;
   background-color: var(--light);
   color: var(--brown);
-  font-family: Typewriter;
+  font-family: Typewriter, 'Times New Roman', serif;
   border-radius: 0px 10px;
   position: absolute;
   left: 0;
@@ -112,7 +107,7 @@ heading {
   margin: 15px 20px;
 }
 .new-book-form-input input {
-  font-family: Typewriter;
+  font-family: Typewriter, 'Times New Roman', serif;
   font-size: 1.2rem;
 }
 
@@ -164,7 +159,7 @@ heading {
   position: relative;
   overflow: auto;
   background-color: #fbefe7;
-  font-family: Typewriter, sans-serif;
+  font-family: Typewriter, 'Times New Roman', serif;
 }
 
 .book-title {
@@ -311,5 +306,5 @@ footer {
   background-color: var(--complement);
   color: var(--brown);
   text-align: center;
-  font-family: Typewriter;
+  font-family: Typewriter, 'Times New Roman', serif;
 }
