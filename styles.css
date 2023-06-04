@@ -21,9 +21,6 @@
   padding: 0;
 }
 
-html {
-  background-color: var(--light);
-}
 header {
   background: var(--complement);
   font-size: 2rem;
