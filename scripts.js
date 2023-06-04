@@ -109,6 +109,15 @@ let makeBookCard = (title, author, pages, read) => {
   pag.classList.add('book-pages');
   pag.textContent = pages + ' pages';
 
+  const cardbot = document.createElement('div');
+  cardbot.classList.add('card-bottom');
+
+  const ph = document.createElement('div');
+  ph.classList.add('punch-hole');
+
+  const rs = document.createElement('div');
+  rs.classList.add('read-slider');
+
   const re = document.createElement('label');
   re.classList.add('switch');
 
@@ -117,9 +126,7 @@ let makeBookCard = (title, author, pages, read) => {
   br.textContent = 'Read?';
 
   const del = document.createElement('button');
-
   del.classList.add('trash-it');
-
   del.setAttribute('id', 'deleteButton' + cbNumber);
   del.setAttribute('type', 'button');
   const sv = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -152,12 +159,16 @@ let makeBookCard = (title, author, pages, read) => {
   re.appendChild(br);
   re.appendChild(cb);
   re.appendChild(sp);
+  rs.appendChild(re);
+
+  cardbot.appendChild(del);
+  cardbot.appendChild(ph);
+  cardbot.appendChild(rs);
 
   mainDiv.appendChild(tit);
   mainDiv.appendChild(auth);
   mainDiv.appendChild(pag);
-  mainDiv.appendChild(del);
-  mainDiv.appendChild(re);
+  mainDiv.appendChild(cardbot);
 
   mainDiv.classList.add('card');
   cardContainer.insertBefore(mainDiv, newBookForm);
