@@ -1,13 +1,21 @@
+@font-face {
+  font-family: Raleway;
+  src: url(../fonts/Raleway/Raleway-Black.ttf);
+}
+
+@font-face {
+  font-family: Titillium;
+  src: url(../fonts/Titillium/TitilliumWeb-Regular.ttf);
+}
+
 * {
   --brown: #5d352b;
   --complement: #2b535d;
-  --light: #d0c6c4;
-  /*   --brown: #add8e6;
-  --complement: #0047ab;
-  --light: #ffffff; */
+  --light: #f7fdff;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: Titillium, sans-serif;
 }
 
 html {
@@ -61,8 +69,8 @@ heading {
 
 #book-form {
   border: 1px solid black;
-  width: 350px;
-  height: 380px;
+  width: 450px;
+  height: 350px;
   display: none;
   grid-template: 60px 250px 25px/ 1fr;
   background-color: var(--light);
@@ -86,6 +94,10 @@ heading {
   grid-template: 1fr / 60px 1fr;
   gap: 10px;
   margin-right: 20px;
+}
+
+.new-book-form-input input {
+  font-family: Raleway, sans-serif;
 }
 
 .new-book-form-title {
@@ -145,19 +157,15 @@ heading {
 
 .card_container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 220px);
+  grid-template-columns: repeat(auto-fit, 420px);
   background-color: var(--light);
 }
-/*   grid-template-columns: repeat(auto-fit, 220px);
-  grid-auto-rows: 290px;
-  grid-auto-flow: column; */
 
 .card {
   height: 250px;
-  width: 200px;
+  width: 400px;
   background-color: var(--complement);
-  border-left: 15px solid var(--brown);
-  border-radius: 0 15px 15px 0;
+  border-radius: 15px;
   margin: 20px 10px;
   box-shadow: 5px 5px 0 rgb(255, 255, 255);
   position: relative;
@@ -166,8 +174,6 @@ heading {
 
 .book-title {
   font-size: 1.2rem;
-  margin: 30px 10px 20px;
-  background-color: var(--brown);
   color: var(--light);
   margin-right: 0;
 }
@@ -175,7 +181,6 @@ heading {
 .card p {
   background-color: var(--complement);
   color: var(--light);
-  font-size: 1rem;
   font-style: italic;
   margin: 10px 25px;
 }
@@ -188,17 +193,31 @@ heading {
   background-color: var(--brown);
 }
 
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .trash-it {
   color: var(--light);
   height: 2.5rem;
   width: 2.5rem;
-  margin: 10px 25px;
-  position: absolute;
-  left: -20px;
-  top: 195px;
+  margin-left: 20px;
+  /* margin: 10px 25px; */
+  /*   position: absolute; */
+  left: 0px;
+  top: 185px;
   background-color: var(--brown);
   border-radius: 5px;
   border: 1px solid var(--light);
+}
+
+.punch-hole {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background-color: black;
 }
 
 .delete-button {
@@ -228,14 +247,14 @@ heading {
   border: none;
 } */
 
-/* a whole bunch toggle styling */
+/*  a whole bunch toggle styling
 .switch {
   position: absolute;
   display: inline-block;
   width: 50px;
   height: 24px;
   top: 215px;
-  left: 120px;
+  left: 325px;
 }
 
 .switch input {
@@ -251,13 +270,13 @@ heading {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: lime;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
 .book-read {
-  position: absolute;
+   position: relative;
   right: 35px;
   bottom: -5px;
 }
@@ -269,13 +288,13 @@ heading {
   width: 20px;
   left: 2px;
   bottom: 2px;
-  background-color: white;
+  background-color: yellow;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
 input:checked + .slider {
-  background-color: var(--brown);
+  background-color: hotpink;
 }
 
 input:checked + .slider:before {
@@ -284,6 +303,79 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+} */
+.read-slider {
+  margin-right: 20px;
+}
+
+.book-read {
+  position: absolute;
+  left: -85px;
+  bottom: -10px;
+  font-size: 1.25rem;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
 .slider.round {
   border-radius: 34px;
 }
