@@ -129,7 +129,7 @@ let makeBookCard = (title, author, pages, read) => {
   del.classList.add('trash-it');
   del.setAttribute('id', 'deleteButton' + cbNumber);
   del.setAttribute('type', 'button');
-  const sv = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  /* const sv = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   sv.classList.add('icon');
   sv.setAttribute('viewbox', '0 0 32 32');
   const trashImage = document.createElementNS(
@@ -141,10 +141,10 @@ let makeBookCard = (title, author, pages, read) => {
     'd',
     'M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z'
   );
-  trashImage.classList.add('delete-button');
+  trashImage.classList.add('delete-button'); */
 
-  del.appendChild(sv);
-  sv.appendChild(trashImage);
+  /* del.appendChild(sv);
+  sv.appendChild(trashImage); */
 
   const cb = document.createElement('input');
   cb.setAttribute('type', 'checkbox');

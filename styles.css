@@ -206,6 +206,7 @@ heading {
   background-color: #6b5c99;
   border-radius: 5px;
   border: 1px solid var(--light);
+  background-image: url(/library/images/trash-outline.svg);
 }
 
 .punch-hole {
