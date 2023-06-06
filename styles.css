@@ -1,10 +1,10 @@
 @font-face {
   font-family: Titillium;
-  src: url(library/fonts/Titillium/TitilliumWeb-Regular.ttf);
+  src: url(/Titillium/TitilliumWeb-Regular.ttf);
 }
 @font-face {
   font-family: Typewriter;
-  src: url(library/fonts/X-Typewriter/XTypewriter-z8oP4.ttf);
+  src: url(/X-Typewriter/XTypewriter-z8oP4.ttf);
 }
 
 * {
