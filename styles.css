@@ -1,15 +1,11 @@
 @font-face {
-  font-family: Titillium;
-  src: url(/library/Titillium/TitilliumWeb-Regular.ttf);
-}
-@font-face {
   font-family: Typewriter;
   src: url(/library/X-Typewriter/XTypewriter-z8oP4.ttf);
 }
 
 * {
-  --brown: #6b5c99;
-  --complement: #fbefe7;
+  --main: var(--main);
+  --complement: var(--complement);
   --light: #f7fdff;
   box-sizing: border-box;
   margin: 0;
@@ -19,14 +15,14 @@
 header {
   background: var(--complement);
   font-size: 2rem;
-  font-family: Titillium, sans-serif;
+  font-family: Typewriter, 'Times New Roman', serif;
 }
 .page-title {
   display: flex;
   justify-content: space-between;
   flex-wrap: nowrap;
   align-items: center;
-  color: var(--brown);
+  color: var(--main);
 }
 .header-right {
   display: grid;
@@ -42,7 +38,7 @@ button {
   margin: 15px 0;
 }
 #add-book-header-button {
-  background-color: var(--brown);
+  background-color: var(--main);
   color: var(--complement);
   box-shadow: 5px 5px 0 var(--light);
   margin-right: 50px;
@@ -52,16 +48,11 @@ button {
 .page-title .icon,
 .page-title h1 {
   margin: 10px;
-  /*   text-shadow: 3px 3px 3px var(--brown); */
 }
 .page-title .icon {
   height: 3rem;
   width: 3rem;
 }
-/* 
-heading {
-  position: relative;
-} */
 
 #book-form {
   border: 3px solid black;
@@ -70,7 +61,7 @@ heading {
   display: none;
   grid-template: 60px 250px 25px/ 1fr;
   background-color: var(--light);
-  color: var(--brown);
+  color: var(--main);
   font-family: Typewriter, 'Times New Roman', serif;
   border-radius: 0px 10px;
   position: absolute;
@@ -121,7 +112,7 @@ heading {
 
 #new-read:checked {
   appearance: none;
-  background: var(--brown);
+  background: var(--main);
   color: var(--complement);
   content: '✓';
 }
@@ -132,9 +123,8 @@ heading {
 
 .add-book-button {
   border-radius: 0px 15px;
-  background-color: var(--brown);
+  background-color: var(--main);
   color: var(--complement);
-  /* box-shadow: 5px 5px 0 var(--complement); */
   height: 35px;
   width: 170px;
   font-size: 1.2rem;
@@ -158,22 +148,20 @@ heading {
   box-shadow: 5px 5px 0 rgb(255, 255, 255);
   position: relative;
   overflow: auto;
-  background-color: #fbefe7;
+  background-color: var(--complement);
   font-family: Typewriter, 'Times New Roman', serif;
 }
 
 .book-title {
   font-size: 1.5rem;
-  /*  color: #a498bc; */
-  color: #a99fc6;
-  color: #6b5c99;
-  background-color: #fbefe7;
+  color: var(--main);
+  background-color: var(--complement);
   margin-right: 0;
   margin: 10px 0px 0 20px;
 }
 
 .card p {
-  color: #6b5c99;
+  color: var(--main);
 }
 
 .card .icon,
@@ -181,7 +169,7 @@ heading {
   color: var(--light);
   height: 2rem;
   width: 2rem;
-  background-color: #6b5c99;
+  background-color: var(--main);
 }
 
 .book-author,
@@ -203,7 +191,7 @@ heading {
   margin-left: 20px;
   left: 0px;
   top: 185px;
-  background-color: #6b5c99;
+  background-color: var(--main);
   border-radius: 5px;
   border: 1px solid var(--light);
   background-image: url(/library/images/trash-outline.svg);
@@ -222,7 +210,6 @@ heading {
   height: 32px;
   width: 32px;
   margin: auto;
-  border: 1px solid hotpink;
 }
 
 .read-slider {
@@ -277,11 +264,11 @@ heading {
 }
 
 input:checked + .slider {
-  background-color: #6b5c99;
+  background-color: var(--main);
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #6b5c99;
+  box-shadow: 0 0 1px var(--main);
 }
 
 input:checked + .slider:before {
@@ -305,7 +292,7 @@ footer {
   bottom: 0;
   width: 100%;
   background-color: var(--complement);
-  color: var(--brown);
+  color: var(--main);
   text-align: center;
   font-family: Typewriter, 'Times New Roman', serif;
 }
